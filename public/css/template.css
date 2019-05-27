@@ -1,0 +1,181 @@
+img {
+    max-width: 100%;
+}
+.ctn-base {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    overflow: hidden;
+}
+.ctn-base > * {}
+
+.barra-lateral {
+    font-size: 14px;
+    background-color: #444d58;
+    overflow: auto;
+}
+.barra-lateral a {
+    color: #DDD;
+}
+.lista-nav {
+    padding-top: 2em;
+    width: 150px;
+}
+.lista-nav a {
+    display: block;
+    padding: .5em 1em;
+    font-size: 1em;
+    /* border: 1px solid red; */
+}
+.lista-nav a:hover {
+    text-decoration: none;
+    color: #FFF;
+    background: #515c69;
+}
+.lista-nav .icon-menu {
+    display: inline-block;
+    width: 1.7em;
+    height: 1.7em;
+    /* border: 1px solid red; */
+}
+.sub-nav {
+    display: none;
+    background: #39434e;
+}
+.sub-nav .icon-sub-nav {
+    color: #576a80;
+}
+.btn-com-sub {
+    position: relative;
+}
+.sub-nav a:hover {
+    background: #313942;
+}
+.ctn-content-base {
+    flex: 1;
+    overflow: auto;
+}
+.topo-site {
+    border-bottom: 1px solid #e2e2e2;
+    /* border: 2px solid red; */
+    padding: .5em;
+}
+.topo-site > * {
+    /* border: 1px solid salmon; */
+    margin-right: 1em;
+}
+.topo-site,
+.topo-site a {
+    color: #337ab7;
+}
+.topo-site a:hover {
+    text-decoration: none;
+    color: #337ab7cf
+}
+.topo-logo img {
+    width: 75px;
+}
+.icon-sub-nav {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: inline-block;
+    color: #888;
+    transform: translateY(-50%);
+}
+.ctn-user-config {
+    cursor: pointer;
+}
+.avatar {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    /* border: 1px solid red; */
+    margin-right: .2em;
+    background: transparent no-repeat center;
+    background-size: contain;
+}
+.user-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #333;
+    width: 120px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s;
+    border-radius: 3px;
+}
+.user-menu::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -2px;
+    right: 10px;
+    width: 7px;
+    height: 7px;
+    background-color: inherit;
+    transform: rotate(45deg);
+}
+.ctn-user-config:hover .user-menu {
+    visibility: visible;
+    opacity: 1;
+}
+.links {
+    background: #313942;
+}
+.links a {
+    color: #6388b5;
+}
+.links a:hover {
+    color: #77b3ff;
+}
+.user-menu a {
+    display: block;
+    color: #CCC;
+    font-size: .8em;
+    padding: .2em;
+    padding-left: .5em;
+}
+.user-menu > li:not(:last-child) {
+    border-bottom: 1px solid #444;
+}
+.user-menu a:hover {
+    color: white;
+}
+.icon-topo {
+    color: #AAA;
+}
+.nome-user {
+    color: #AAA;
+    font-size: 13px;
+}
+.pag-title {
+    padding: 7px 15px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
+    background: #444d58bf;
+    color: #f5f5f5;
+}
+.pag-title,
+.pag-title a {
+    color: #d6d6d6;
+}
+.pag-title li:last-child,
+.pag-title li:last-child a {
+    color: white;
+}
+
+.paginacao-topo {
+    display: flex;
+    font-size: 13px;
+    margin: 0;
+}
+.paginacao-topo > li:not(:last-child)::after {
+    content: '>';
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.content-site {
+    padding: 15px;
+}

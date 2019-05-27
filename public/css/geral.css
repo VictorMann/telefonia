@@ -1,0 +1,117 @@
+/* BODY */
+body {
+    font-size: .9em;
+}
+
+/* TITULO DA PAGINA */
+h1, h2, h3, h4, h5, h6 {
+    color: #337ab7;
+    font-weight: bold;
+}
+
+/* LINKS */
+a {
+    color: #337ab7;
+}
+
+h2 { font-size: 1.1em   }
+h3 { font-size: 1em     }
+h4 { font-size: 9.5em   }
+h5 { font-size: 9em     }
+h6 { font-size: 8.75em  }
+
+.title-page h1 {
+    padding-bottom: .5em;
+    border-bottom: 2px solid #ffddad;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+
+/* TABELA */
+.tb-base {
+    border-bottom: 1px solid #CCC;
+    font-size: .9em;
+}
+.tb-base thead {
+    background: #337ab7;
+    color: white;
+}
+.tb-base th {
+    font-weight: normal;
+}
+.tb-base th,
+.tb-base td {
+    vertical-align: middle;
+}
+.tb-base th:last-child {
+    width: 140px;
+}
+.status-action::before {
+    content: '';
+    display: inline-block;
+    width: .6em;
+    height: .6em;
+    background-color: #888;
+    margin-right: .3em;
+    border-radius: 50%;
+}
+.status-on {
+    color: #28a745;
+}
+.status-on::before {
+    background-color: #28a745;
+}
+.status-off {
+    color: #dc3545;
+}
+.status-off::before {
+    background-color: #dc3545;
+}
+
+
+
+/* LISTA */
+.list-unstyled {
+    margin-bottom: 0;
+}
+.lista-acao li {
+    padding: 0 .3em;
+}
+.lista-acao a {
+    color: #337ab7;
+}
+.lista-acao a:hover {
+    color: #3c97e6;
+}
+.lista-acao .icon {
+    display: inline-block;
+    background: #337ab7;
+    color: white;
+    padding: 0 .5em;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+.lista-acao .icon:hover {
+    background: #3c97e6;
+}
+
+/* SEM RESULTADOS */
+.sem-resultado {
+    background: #efefef;
+    padding: .5em;
+    text-align: center;
+    color: #555;
+    margin-top: 1em;
+}
+
+
+/* PILLS */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: #337ab7;
+}
+.nav-link {
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+}
