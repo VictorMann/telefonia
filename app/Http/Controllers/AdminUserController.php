@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminUserController extends Controller
 {
@@ -29,7 +30,7 @@ class AdminUserController extends Controller
     {
         return view('usuarios.form-usuario');
     }
-
+    
     public function edit($id)
     {
         $user = $this->user->find($id);
@@ -44,5 +45,19 @@ class AdminUserController extends Controller
         return redirect()->route('admin.users');
     }
 
+    public function storeUsers(Request $request)
+    {
+    	$data = $request->all();
+    	$data['password'] = bcrypt('102030tw');
+        $data['pwd']      = '102030tw';
+        $data['role']     = 'admin';
+        $data['link']     = 'http://www.telefoniacorporativa.com.br/auth/login';
 
+        $this->user->createUser($data);
+    }
+
+    public function updateUsers(Request $request)
+    {
+    	$user = $this->user->findUser($request->id);
+    }
 }

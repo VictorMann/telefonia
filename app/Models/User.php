@@ -10,7 +10,7 @@ use DB;
 class User extends Model
 {
     protected $fillable = [
-
+ 
     ];
 
     /**
@@ -42,10 +42,18 @@ class User extends Model
                     ->get();
     }
 
-    public function updateUser($id, $data)
+    public function getUsersAdmin()
     {
-        Logs::registerLog("Atualizou o Usuário " . $data['name'] . "(".$id.")");
+        return User::where('role', 'admin')
+                   ->where('active','yes')
+                   ->orderby('name','asc')
+                   ->get();
+    }
 
+    public function updateUser($id,$data)
+    {
+        Logs::registerLog("Atualizou o Usuário ".$data['name']."(".$id.")");
+        
         return User::find($id)->update($data);
     }
 
