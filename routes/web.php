@@ -26,13 +26,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 
 
     // Dashboard
-    Route::get('dashboard', 'HomeController@index')->name('dashboard');
+    Route::get('dashboard', 'HomeController@index')->name('admin.dashboard');
 
 
     // Usuários
     Route::get('usuarios', 'AdminUserController@index')->name('admin.users');
-    Route::get('novo-usuario', 'AdminUserController@index')->name('admin.users');
-    Route::get('novo-usuario', 'AdminUserController@form')->name('admin.users.create');
+    Route::get('usuarios/create', 'AdminUserController@create')->name('admin.users.create');
+    Route::get('usuarios/{id}', 'AdminUserController@edit')->name('admin.users.edit');
+
     Route::get('perfis-de-usuarios', 'AdminUserController@listarPerfis')->name('admin.users.perfis');
 
     Route::get('clientes', 'AdminCustomerController@index')->name('admin.customers');
@@ -49,8 +50,17 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     // Ferramentas
     Route::get('config', 'AdminSystemConfigController@index')->name('admin.config');
     Route::get('mensagens', 'AdminSystemConfigController@msgAlertIndex')->name('admin.config.mensagens');
+    Route::get('sms', 'AdminSystemConfigController@smsAlertIndex')->name('admin.config.sms');
+    Route::get('sms-whatsapp', 'AdminSystemConfigController@smsWhatsapp')->name('admin.config.whatsapp');
+    Route::get('mailing-clientes', 'AdminSystemConfigController@mailingClientes')->name('admin.mailing.clientes');
 
-
+    Route::get('terms', 'AdminSystemConfigController@termsIndex')->name('admin.config.terms');
+    Route::get('rotas', 'AdminRotasController@index')->name('admin.rotas');
+    Route::get('blacklist', 'AdminBlacklistDomainController@index')->name('admin.blacklists');
+    Route::get('departamentos', 'AdminDepartamentoController@index')->name('admin.departamentos');
+    Route::get('pabx', 'AdminPabxController@index')->name('admin.pabx');
+    Route::get('videos', 'AdminVideosController@index')->name('admin.videos');
+    Route::get('template-de-email', 'AdminTemplateMailController@index')->name('admin.mail.template');
 
 
 });
