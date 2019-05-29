@@ -2,7 +2,12 @@
 
 {{-- STYLES --}}
 @section('styles')
-
+<style>
+.area-nav {
+    border: 1px solid #DDD;
+    border-top: none;
+}
+</style>
 @endsection
 
 {{-- CONTENTE --}}
