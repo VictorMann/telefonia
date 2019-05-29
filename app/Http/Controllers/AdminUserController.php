@@ -16,5 +16,10 @@ class AdminUserController extends Controller
         return view('usuarios.perfil-usuario');
     }
 
+    public function form()
+    {
+        return view('usuarios.form-usuario');
+    }
+
 
 }
