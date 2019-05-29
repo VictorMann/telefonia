@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+.base {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+.base > * {
+    /* border: 2px solid rgb(139, 207, 38); */
+}
+.base > section {
+    width: 350px;
+    order: 2;
+}
+.base > aside {
+    flex: 1;
+    order: 1;
+    background: url(/imgs/geral/1.jpg) no-repeat center;
+    background-size: cover;
+}
+.f-login {
+    position: relative;
+}
+.f-login::before {
+    position: absolute;
+    bottom: 105%;
+    left: 50%;
+    content: '';
+    display: block;
+    background: url(/imgs/geral/logotw.png) no-repeat center;
+    background-size: contain;
+    width: 35%;
+    height: 75px;
+    /* border: 1px solid red; */
+    transform: translateX(-50%);
+}
+
+.ctn-remember {
+    font-size: .8em;
+}
+.ctn-remember input {
+    vertical-align: middle;
+}
+.forgot-password a {
+    font-size: .8em !important;
+    padding-left: 0;
+    margin-top: 2em;
+}

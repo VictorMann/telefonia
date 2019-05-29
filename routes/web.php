@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
+    // return view('welcome');
 });
 
 Auth::routes();
@@ -20,8 +21,13 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 
+    // Logout
+    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
+
+    // Dashboard
     Route::get('dashboard', 'HomeController@index')->name('dashboard');
+
 
     // Usuários
     Route::get('usuarios', 'AdminUserController@index')->name('admin.users');
@@ -37,8 +43,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('agentes-contrato-rejeitado', 'AdminAgenteController@agentesRejeitados')->name('admin.agentes.contrato.rejeitado');
     Route::get('agentes-cadastro-nao-preenchido', 'AdminAgenteController@agentesCadastroNaoPreenchido')->name('admin.agentes.contrato.cadastro.incompleto');
 
+
     // Ferramentas
     Route::get('config', 'AdminSystemConfigController@index')->name('admin.config');
+    Route::get('mensagens', 'AdminSystemConfigController@msgAlertIndex')->name('admin.config.mensagens');
 
 
 

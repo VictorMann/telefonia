@@ -10,4 +10,9 @@ class AdminSystemConfigController extends Controller
     {
         return view('ferramentas.parametrizacao');
     }
+
+    public function msgAlertIndex()
+    {
+        return view('ferramentas.msg-email-cobranca');
+    }
 }

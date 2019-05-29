@@ -32,7 +32,6 @@ class HomeController extends Controller
         // }
 
         // dd(1);
-
         return view('home');
     }
 }

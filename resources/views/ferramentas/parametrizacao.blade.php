@@ -335,7 +335,7 @@
                         <a class="nav-link" href="#ceo">CEO</a>
                     </div>
                 </div>
-                {{-- iep --}}
+
                 <div class="col-md">
                     <div class="secoes-comissoes border p-3">
                         <section id="indicador">
