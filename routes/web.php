@@ -31,6 +31,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 
     // Usuários
     Route::get('usuarios', 'AdminUserController@index')->name('admin.users');
+    Route::get('novo-usuario', 'AdminUserController@index')->name('admin.users');
+    Route::get('novo-usuario', 'AdminUserController@form')->name('admin.users.create');
     Route::get('perfis-de-usuarios', 'AdminUserController@listarPerfis')->name('admin.users.perfis');
 
     Route::get('clientes', 'AdminCustomerController@index')->name('admin.customers');
