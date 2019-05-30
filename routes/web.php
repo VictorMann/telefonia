@@ -31,12 +31,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 
     // Usuários
     Route::get('usuarios', 'AdminUserController@index')->name('admin.users');
-<<<<<<< HEAD
     Route::get('usuarios/create', 'AdminUserController@create')->name('admin.users.create');
-=======
 
-    Route::get('novo-usuario', 'AdminUserController@form')->name('admin.users.create');
->>>>>>> alteracoes
     Route::get('usuarios/{id}', 'AdminUserController@edit')->name('admin.users.edit');
 
     Route::get('perfis-de-usuarios', 'AdminUserController@listarPerfis')->name('admin.users.perfis');
