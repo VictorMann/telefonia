@@ -24,11 +24,11 @@ class User extends Model
     {
         if($form['role'] == 'admin')
         {
-            Logs::registerLog("Criou o Usuário Admin ".$form['name']);
+            //Logs::registerLog("Criou o Usuário Admin ".$form['name']);
         }
         else
         {
-            Logs::registerLog("Criou o Usuário Cliente ".$form['name']);
+            //Logs::registerLog("Criou o Usuário Cliente ".$form['name']);
         }
 
         return User::create($form);
@@ -52,13 +52,13 @@ class User extends Model
 
     public function updateUser($id,$data)
     {
-        Logs::registerLog("Atualizou o Usuário ".$data['name']."(".$id.")");
+        //Logs::registerLog("Atualizou o Usuário ".$data['name']."(".$id.")");
         
         return User::find($id)->update($data);
     }
 
     public function deleteUser($id){
-        Logs::registerLog("Deletou o Usuario (".$id.")");
+        //Logs::registerLog("Deletou o Usuario (".$id.")");
         User::find($id)->delete();
 
     }
