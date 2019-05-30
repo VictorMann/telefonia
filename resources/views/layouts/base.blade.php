@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/libraries/bootstrap4.3.1.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('fonts/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet">
+    
     <link href="{{ asset('fonts/fontawesome/css/solid.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/template.css') }}" rel="stylesheet">
     <link href="{{ asset('css/geral.css') }}" rel="stylesheet">

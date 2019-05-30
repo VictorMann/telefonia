@@ -2,6 +2,7 @@
 
 {{-- STYLES --}}
 @section('styles')
+    <link href="{{ asset('/plugins/bootstrap-sweetalert/sweetalert.css') }}" rel="stylesheet">
 <style>
 body {
     font-size: .9em;
@@ -84,7 +85,7 @@ body {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" data-toggle="popover" data-content="Remover usuário {{$user->name}}">
+                                        <a href="#" data-toggle="popover" data-content="Remover usuário {{$user->name}}" onclick="removeRegistro('usuarios-remover/','{{ $user->id }}')">
                                             <i class="fa fa-times"></i>
                                         </a>
                                     </li>
@@ -117,6 +118,7 @@ body {
 
 {{-- SCRIPTS --}}
 @section('scripts')
+@include('include.js')
 <script>
 
     // popover
@@ -128,4 +130,5 @@ body {
 
 
 </script>
+
 @endsection

@@ -28,36 +28,79 @@ class AdminUserController extends Controller
 
     public function create()
     {
-        return view('usuarios.form-usuario');
+
+        $form = (object) ['route'  => 'admin.users.save','method' => 'POST'];
+
+        $perfis = ['' => '::Selecione o Perfil do Colaborador::',
+            1 => 'Administrador',
+            2 => 'Suporte',
+            3 => 'Financeiro',
+            4 => 'Comercial'
+        ];
+
+        $cargos  = ['' => '::Selecione o Cargo do Colaborador',
+            1 => 'Presidente',
+            2 => 'Gerente Comercial'
+        ];
+
+        return view('usuarios.form-usuario', compact(
+            'perfis','cargos','form'
+        ));
     }
     
+    public function save(Request $request)
+    {
+        $data = $request->all();
+        $data['password'] = bcrypt('102030tw');
+        $data['pwd']      = '102030tw';
+        $data['role']     = 'admin';
+        $data['link']     = 'http://www.telefoniacorporativa.com.br/auth/login';
+
+        $this->user->createUser($data);
+
+        return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario cadastrado com sucesso!');
+    }
+
     public function edit($id)
     {
+        $form = (object) ['route'  => 'admin.users.update','method' => 'PUT'];
         $user = $this->user->find($id);
+
+        $perfis = ['' => '::Selecione o Perfil do Colaborador::',
+            1 => 'Administrador',
+            2 => 'Suporte',
+            3 => 'Financeiro',
+            4 => 'Comercial'
+        ];
+
+        $cargos  = ['' => '::Selecione o Cargo do Colaborador',
+            1 => 'Presidente',
+            2 => 'Gerente Comercial'
+        ];
+
 
         if ($user)
         {
             return view('usuarios.form-usuario', compact(
-                'user'
+                'user','form','perfis','cargos'
             ));
         }
 
         return redirect()->route('admin.users');
     }
 
-    public function storeUsers(Request $request)
+    public function update(Request $request)
     {
-    	$data = $request->all();
-    	$data['password'] = bcrypt('102030tw');
-        $data['pwd']      = '102030tw';
-        $data['role']     = 'admin';
-        $data['link']     = 'http://www.telefoniacorporativa.com.br/auth/login';
+        $data = $request->all();
 
-        $this->user->createUser($data);
+        $this->user->updateUser($request->id,$data);
+        
+        return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario editado com sucesso!');
     }
 
-    public function updateUsers(Request $request)
+    public function remove ($id) 
     {
-    	$user = $this->user->findUser($request->id);
+        $this->user->find($id)->delete();
+        return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario excluido com sucesso!');
     }
 }

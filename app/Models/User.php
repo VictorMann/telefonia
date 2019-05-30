@@ -10,7 +10,14 @@ use DB;
 class User extends Model
 {
     protected $fillable = [
- 
+        'name',
+        'email',
+        'password',
+        'role',
+        'active',
+        'profile',
+        'perfil_id',
+        'status'
     ];
 
     /**
@@ -37,17 +44,9 @@ class User extends Model
     public function getUsersAdmin()
     {
         return User::where('role', 'admin')
-                    ->where('active','yes')
-                    ->orderby('name','asc')
-                    ->get();
-    }
-
-    public function getUsersAdmin()
-    {
-        return User::where('role', 'admin')
-                   ->where('active','yes')
-                   ->orderby('name','asc')
-                   ->get();
+       ->where('active','yes')
+       ->orderby('name','asc')
+       ->get();
     }
 
     public function updateUser($id,$data)

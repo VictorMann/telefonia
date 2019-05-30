@@ -32,6 +32,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     // Usuários
     Route::get('usuarios', 'AdminUserController@index')->name('admin.users');
     Route::get('usuarios/create', 'AdminUserController@create')->name('admin.users.create');
+    Route::post('usuarios/novo', 'AdminUserController@save')->name('admin.users.save');
+
+    Route::put('usuarios/update', 'AdminUserController@update')->name('admin.users.update');
+
+    Route::get('usuarios-remover/{id}', 'AdminUserController@remove')->name('admin.users.remove');
 
     Route::get('usuarios/{id}', 'AdminUserController@edit')->name('admin.users.edit');
 
