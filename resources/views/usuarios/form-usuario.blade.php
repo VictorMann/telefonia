@@ -39,13 +39,13 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="nome">Nome</label>
-                                <input type="text" id="nome" class="form-control form-control-sm" placeholder="Nome do usuário">
+                            <input type="text" id="nome" name="name" value="{{ $user->name ?? '' }}" class="form-control form-control-sm" placeholder="Nome do usuário">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control form-control-sm" placeholder="Endereço de email">
+                                <input type="email" id="email" name="email" value="{{ $user->email ?? '' }}" class="form-control form-control-sm" placeholder="Endereço de email">
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
 
                 <div class="form-group border-top pt-3">
                     <button class="btn btn-sm btn-success">Salvar</button>
-                    <button class="btn btn-sm btn-secondary">Cancelar</button>
+                    <a class="btn btn-sm btn-secondary" href="{{ route('admin.users') }}">Cancelar</a>
                 </div>
 
             </form>

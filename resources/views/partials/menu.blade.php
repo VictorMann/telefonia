@@ -1,5 +1,5 @@
 <nav class="barra-lateral">
-    <ul class="list-unstyled lista-nav">
+    <ul class="list-unstyled lista-nav mb-4">
         @foreach ($menu as $m)
             <li>
                 <a href="{{ $m->route ? route($m->route) : 'javascript:;' }}" class="{{ $m->hasSub() ? 'btn-com-sub' : '' }}">

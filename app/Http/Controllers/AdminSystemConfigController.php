@@ -15,4 +15,24 @@ class AdminSystemConfigController extends Controller
     {
         return view('ferramentas.msg-email-cobranca');
     }
+
+    public function smsAlertIndex()
+    {
+        return view('ferramentas.msg-sms-cobranca');
+    }
+
+    public function smsWhatsapp()
+    {
+        return view('ferramentas.msg-sms-whatsapp');
+    }
+
+    public function mailingClientes()
+    {
+        return view('ferramentas.mailing-clientes');
+    }
+
+    public function termsIndex()
+    {
+        return view('ferramentas.terms');
+    }
 }

@@ -40,7 +40,7 @@
 
             <div class="area-msg p-3 d-none" id="mensagens-financeiro">
 
-                <ul class="nav nav-pills pillBase">
+                <ul class="nav nav-pills pillBase mb-3">
                     <li class="nav-item">
                         <a class="nav-link active" href="javascript:;">
                             Expiração (conta grátis)
@@ -62,7 +62,7 @@
 
             <div class="area-msg p-3 d-none" id="mensagens-proposta-comercial">
 
-                <ul class="nav nav-pills pillBase">
+                <ul class="nav nav-pills pillBase mb-3">
                     <li class="nav-item">
                         <a class="nav-link active" href="javascript:;">
                             FollowUp Cliente
