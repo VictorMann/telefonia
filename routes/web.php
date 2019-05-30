@@ -41,8 +41,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('usuarios/{id}', 'AdminUserController@edit')->name('admin.users.edit');
 
     Route::get('perfis-de-usuarios', 'AdminUserController@listarPerfis')->name('admin.users.perfis');
+    Route::get('perfis-de-usuarios/create', 'AdminUserController@craetePerfil')->name('admin.users.perfis.create');
 
     Route::get('clientes', 'AdminCustomerController@index')->name('admin.customers');
+    Route::get('clientes/create', 'AdminCustomerController@createCliente')->name('admin.customers.create');
+
     Route::get('clientes-siptek', 'AdminCustomerSiptekController@form')->name('admin.customers.create.siptek');
     Route::get('clientes-siptek-pos', 'AdminCustomerSiptekController@formPos')->name('admin.customers.create.siptek.pos');
 

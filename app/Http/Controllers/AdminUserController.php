@@ -26,6 +26,11 @@ class AdminUserController extends Controller
         return view('usuarios.perfil-usuario');
     }
 
+    public function craetePerfil()
+    {
+        return view('usuarios.perfil-usuario-form');
+    }
+
     public function create()
     {
 

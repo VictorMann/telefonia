@@ -36,9 +36,9 @@
         </div>
         <div class="col-md d-flex justify-content-end">
 
-            <button class="btn btn-success btn-sm">
+            <a class="btn btn-success btn-sm" href="{{ route('admin.users.perfis.create') }}">
                 Novo Perfil
-            </button>
+            </a>
 
         </div>
 
