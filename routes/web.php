@@ -71,7 +71,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('videos', 'AdminVideosController@index')->name('admin.videos');
     Route::get('template-de-email', 'AdminTemplateMailController@index')->name('admin.mail.template');
 
-
+    Route::get('grupos-de-email', 'AdminGrupoEmailController@index')->name('admin.grupos.email');
+    Route::get('grupos-de-vendas', 'AdminGrupoVendaController@index')->name('admin.grupos.vendas');
+    Route::get('pesquisa-satisfacao', 'AdminPesquisaSatisfacaoController@index')->name('admin.satisfacao');
 });
 
 
