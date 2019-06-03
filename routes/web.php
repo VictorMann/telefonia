@@ -35,9 +35,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::post('usuarios/novo', 'AdminUserController@save')->name('admin.users.save');
 
     Route::put('usuarios/update', 'AdminUserController@update')->name('admin.users.update');
-
     Route::get('usuarios-remover/{id}', 'AdminUserController@remove')->name('admin.users.remove');
-
     Route::get('usuarios/{id}', 'AdminUserController@edit')->name('admin.users.edit');
 
     Route::get('perfis-de-usuarios', 'AdminUserController@listarPerfis')->name('admin.users.perfis');
@@ -74,6 +72,18 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('grupos-de-email', 'AdminGrupoEmailController@index')->name('admin.grupos.email');
     Route::get('grupos-de-vendas', 'AdminGrupoVendaController@index')->name('admin.grupos.vendas');
     Route::get('pesquisa-satisfacao', 'AdminPesquisaSatisfacaoController@index')->name('admin.satisfacao');
+    Route::get('whois', 'AdminWhoisDomainController@index')->name('admin.whois');
+
+    // Vendas
+    Route::get('propostas', 'AdminPropostaComercialController@index')->name('admin.propostas');
+    Route::get('tipo-de-proposta', 'AdminPropostaComercialController@indexTipo')->name('admin.propostas.tipo');
+    Route::get('get-propostas/desconto', 'AdminPropostaComercialController@getSolicitacoesPropostasDescontos')->name('admin.propostas.desconto');
+    Route::get('get-propostas/analise-credito', 'AdminPropostaComercialController@getSolicitacoesPropostasEmAnalise')->name('admin.propostas.analise.credito');
+    Route::get('layout-de-proposta', 'AdminTemplateController@index')->name('admin.propostas.layout');
+
+    Route::get('vendas', 'AdminVendaController@index')->name('admin.vendas');
+    Route::get('nova-venda', 'AdminSaleController@form')->name('admin.sales.create');
+    Route::get('contratos', 'AdminSystemConfigController@contratosIndex')->name('admin.config.contratos');
 });
 
 
