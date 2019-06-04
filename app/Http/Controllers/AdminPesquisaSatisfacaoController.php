@@ -8,6 +8,6 @@ class AdminPesquisaSatisfacaoController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.pesquisa-satisfacao');
+        return view('admin.ferramentas.pesquisa-satisfacao');
     }
 }

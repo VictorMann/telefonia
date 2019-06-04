@@ -8,6 +8,6 @@ class AdminRotasController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.rotas');
+        return view('admin.ferramentas.rotas');
     }
 }

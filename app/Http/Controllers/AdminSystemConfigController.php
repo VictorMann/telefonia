@@ -8,36 +8,36 @@ class AdminSystemConfigController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.parametrizacao');
+        return view('admin.ferramentas.parametrizacao');
     }
 
     public function msgAlertIndex()
     {
-        return view('ferramentas.msg-email-cobranca');
+        return view('admin.ferramentas.msg-email-cobranca');
     }
 
     public function smsAlertIndex()
     {
-        return view('ferramentas.msg-sms-cobranca');
+        return view('admin.ferramentas.msg-sms-cobranca');
     }
 
     public function smsWhatsapp()
     {
-        return view('ferramentas.msg-sms-whatsapp');
+        return view('admin.ferramentas.msg-sms-whatsapp');
     }
 
     public function mailingClientes()
     {
-        return view('ferramentas.mailing-clientes');
+        return view('admin.ferramentas.mailing-clientes');
     }
 
     public function termsIndex()
     {
-        return view('ferramentas.terms');
+        return view('admin.ferramentas.terms');
     }
 
     public function contratosIndex()
     {
-        return view('vendas.editar-contrato');
+        return view('admin.vendas.editar-contrato');
     }
 }

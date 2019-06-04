@@ -8,6 +8,6 @@ class AdminGrupoEmailController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.grupos-email');
+        return view('admin.ferramentas.grupos-email');
     }
 }

@@ -8,6 +8,6 @@ class AdminTemplateMailController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.template-email');
+        return view('admin.ferramentas.template-email');
     }
 }

@@ -8,6 +8,6 @@ class AdminWhoisDomainController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.whois');
+        return view('admin.ferramentas.whois');
     }
 }

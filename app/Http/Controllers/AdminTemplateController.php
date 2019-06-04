@@ -8,6 +8,6 @@ class AdminTemplateController extends Controller
 {
     public function index()
     {
-        return view('vendas.layout-proposta');
+        return view('admin.vendas.layout-proposta');
     }
 }

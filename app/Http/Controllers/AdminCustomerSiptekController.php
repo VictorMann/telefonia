@@ -8,11 +8,11 @@ class AdminCustomerSiptekController extends Controller
 {
     public function form()
     {
-        return view('usuarios.migrar-clientes');
+        return view('admin.usuarios.migrar-clientes');
     }
 
     public function formPos()
     {
-        return view('usuarios.migrar-clientes-pos');
+        return view('admin.usuarios.migrar-clientes-pos');
     }
 }

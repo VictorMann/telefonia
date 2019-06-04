@@ -8,6 +8,6 @@ class AdminVideosController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.videos');
+        return view('admin.ferramentas.videos');
     }
 }

@@ -8,6 +8,6 @@ class AdminVendaController extends Controller
 {
     public function index()
     {
-        return view('vendas.consultar-vendas');
+        return view('admin.vendas.consultar-vendas');
     }
 }

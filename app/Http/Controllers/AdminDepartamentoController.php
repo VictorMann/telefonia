@@ -8,6 +8,6 @@ class AdminDepartamentoController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.departamentos');
+        return view('admin.ferramentas.departamentos');
     }
 }

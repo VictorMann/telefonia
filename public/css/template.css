@@ -28,22 +28,35 @@ img {
 .ctn-base > * {}
 
 .barra-lateral {
+    position: relative;
     font-size: 14px;
     background-color: #444d58;
-    overflow: auto;
+    width: 52px;
 }
 .barra-lateral a {
     color: #DDD;
 }
 .lista-nav {
+    position: absolute;
     padding-top: 2em;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    overflow-y: auto;
+    z-index: 999999;
+    transition: width 50ms;
+}
+.lista-nav > li > a {
+    height: 40px;
+    overflow: hidden;
+}
+.lista-nav:hover {
     width: 180px;
 }
 .lista-nav a {
     display: block;
     padding: .5em 1em;
     font-size: 1em;
-    /* border: 1px solid red; */
 }
 .lista-nav a:hover {
     text-decoration: none;
@@ -54,7 +67,18 @@ img {
     display: inline-block;
     width: 1.7em;
     height: 1.7em;
-    /* border: 1px solid red; */
+    text-align: center;
+}
+.lista-nav .title-menu,
+.lista-nav .icon-sub-nav {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 50ms ease 10ms;
+}
+.lista-nav:hover .title-menu,
+.lista-nav:hover .icon-sub-nav {
+    visibility: visible;
+    opacity: 1;
 }
 .sub-nav {
     display: none;

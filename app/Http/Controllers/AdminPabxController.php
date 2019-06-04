@@ -8,6 +8,6 @@ class AdminPabxController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.pabx');
+        return view('admin.ferramentas.pabx');
     }
 }

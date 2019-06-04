@@ -16,24 +16,24 @@ class AdminUserController extends Controller
     {
         $users  = $this->user->getUsersAdmin();
 
-        return view('usuarios.colaboradores', compact(
+        return view('admin.usuarios.colaboradores', compact(
             'users'
         ));
     }
 
     public function profile()
     {
-        return view('usuarios.config-usuario');
+        return view('admin.usuarios.config-usuario');
     }
 
     public function listarPerfis()
     {
-        return view('usuarios.perfil-usuario');
+        return view('admin.usuarios.perfil-usuario');
     }
 
     public function craetePerfil()
     {
-        return view('usuarios.perfil-usuario-form');
+        return view('admin.usuarios.perfil-usuario-form');
     }
 
     public function create()
@@ -53,7 +53,7 @@ class AdminUserController extends Controller
             2 => 'Gerente Comercial'
         ];
 
-        return view('usuarios.form-usuario', compact(
+        return view('admin.usuarios.form-usuario', compact(
             'perfis','cargos','form'
         ));
     }
@@ -91,7 +91,7 @@ class AdminUserController extends Controller
 
         if ($user)
         {
-            return view('usuarios.form-usuario', compact(
+            return view('admin.usuarios.form-usuario', compact(
                 'user','form','perfis','cargos'
             ));
         }

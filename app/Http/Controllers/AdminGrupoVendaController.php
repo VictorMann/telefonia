@@ -8,6 +8,6 @@ class AdminGrupoVendaController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.grupos-vendas');
+        return view('admin.ferramentas.grupos-vendas');
     }
 }

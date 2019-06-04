@@ -8,26 +8,26 @@ class AdminAgenteController extends Controller
 {
     public function index()
     {
-        return view('usuarios.consultar-agentes');
+        return view('admin.usuarios.consultar-agentes');
     }
 
     public function agentesPendentes()
     {
-        return view('usuarios.agentes-aprovacao-pend');
+        return view('admin.usuarios.agentes-aprovacao-pend');
     }
 
     public function agentesContratoPendente()
     {
-        return view('usuarios.agentes-contract-pend');
+        return view('admin.usuarios.agentes-contract-pend');
     }
 
     public function agentesRejeitados()
     {
-        return view('usuarios.agentes-rejeitados');
+        return view('admin.usuarios.agentes-rejeitados');
     }
 
     public function agentesCadastroNaoPreenchido()
     {
-        return view('usuarios.agentes-incompletos');
+        return view('admin.usuarios.agentes-incompletos');
     }
 }

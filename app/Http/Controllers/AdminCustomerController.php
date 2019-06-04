@@ -8,11 +8,11 @@ class AdminCustomerController extends Controller
 {
     public function index()
     {
-        return view('usuarios.consultar-clientes');
+        return view('admin.usuarios.consultar-clientes');
     }
 
     public function createCliente()
     {
-        return view('usuarios.form-cliente');
+        return view('admin.usuarios.form-cliente');
     }
 }

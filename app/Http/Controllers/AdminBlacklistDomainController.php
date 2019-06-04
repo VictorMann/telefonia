@@ -8,6 +8,6 @@ class AdminBlacklistDomainController extends Controller
 {
     public function index()
     {
-        return view('ferramentas.blacklist');
+        return view('admin.ferramentas.blacklist');
     }
 }
