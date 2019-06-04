@@ -10,7 +10,14 @@ use DB;
 class User extends Model
 {
     protected $fillable = [
-
+        'name',
+        'email',
+        'password',
+        'role',
+        'active',
+        'profile',
+        'perfil_id',
+        'status'
     ];
 
     /**
@@ -24,11 +31,11 @@ class User extends Model
     {
         if($form['role'] == 'admin')
         {
-            Logs::registerLog("Criou o Usuário Admin ".$form['name']);
+            //Logs::registerLog("Criou o Usuário Admin ".$form['name']);
         }
         else
         {
-            Logs::registerLog("Criou o Usuário Cliente ".$form['name']);
+            //Logs::registerLog("Criou o Usuário Cliente ".$form['name']);
         }
 
         return User::create($form);
@@ -37,20 +44,20 @@ class User extends Model
     public function getUsersAdmin()
     {
         return User::where('role', 'admin')
-                    ->where('active','yes')
-                    ->orderby('name','asc')
-                    ->get();
+       ->where('active','yes')
+       ->orderby('name','asc')
+       ->get();
     }
 
-    public function updateUser($id, $data)
+    public function updateUser($id,$data)
     {
-        Logs::registerLog("Atualizou o Usuário " . $data['name'] . "(".$id.")");
-
+        //Logs::registerLog("Atualizou o Usuário ".$data['name']."(".$id.")");
+        
         return User::find($id)->update($data);
     }
 
     public function deleteUser($id){
-        Logs::registerLog("Deletou o Usuario (".$id.")");
+        //Logs::registerLog("Deletou o Usuario (".$id.")");
         User::find($id)->delete();
 
     }

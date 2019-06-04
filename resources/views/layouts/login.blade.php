@@ -15,12 +15,12 @@
 
     <div class="base d-flex">
 
-        <section class="area-login d-flex justify-content-center align-items-center">
+        <section class="area-login d-flex flex-column justify-content-center align-items-center position-relative">
 
             <form class="f-login w-75" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Login">
+                    <input id="email" type="email" class="form-control form-control-sm @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Login">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -28,7 +28,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Senha">
+                    <input id="password" type="password" class="form-control form-control-sm @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Senha">
                 </div>
 
                 <div class="form-group ctn-remember text-right">
@@ -46,11 +46,13 @@
                         </a>
                     @endif
                 </div>
-
-
             </form>
 
-
+            <div class="rede-sociais w-100 position-absolute">
+                <a href="https://www.facebook.com/twtelecom/" style="background-image: url(/imgs/geral/facebook.gif)">facebook</a>
+                <a href="https://www.linkedin.com/company/t-w-solutions" style="background-image: url(/imgs/geral/linkedin.gif)">linkedin</a>
+                <span>Copyright © Twsolutions 2019</span>
+            </div>
         </section>
         <aside></aside>
     </div>

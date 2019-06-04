@@ -35,4 +35,9 @@ class AdminSystemConfigController extends Controller
     {
         return view('ferramentas.terms');
     }
+
+    public function contratosIndex()
+    {
+        return view('vendas.editar-contrato');
+    }
 }

@@ -29,14 +29,25 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('dashboard', 'HomeController@index')->name('admin.dashboard');
 
 
+    // Perfil usuário
+    Route::get('meu-perfil', 'AdminUserController@profile')->name('admin.users.perfil');
+
+
     // Usuários
     Route::get('usuarios', 'AdminUserController@index')->name('admin.users');
     Route::get('usuarios/create', 'AdminUserController@create')->name('admin.users.create');
+    Route::post('usuarios/novo', 'AdminUserController@save')->name('admin.users.save');
+
+    Route::put('usuarios/update', 'AdminUserController@update')->name('admin.users.update');
+    Route::get('usuarios-remover/{id}', 'AdminUserController@remove')->name('admin.users.remove');
     Route::get('usuarios/{id}', 'AdminUserController@edit')->name('admin.users.edit');
 
     Route::get('perfis-de-usuarios', 'AdminUserController@listarPerfis')->name('admin.users.perfis');
+    Route::get('perfis-de-usuarios/create', 'AdminUserController@craetePerfil')->name('admin.users.perfis.create');
 
     Route::get('clientes', 'AdminCustomerController@index')->name('admin.customers');
+    Route::get('clientes/create', 'AdminCustomerController@createCliente')->name('admin.customers.create');
+
     Route::get('clientes-siptek', 'AdminCustomerSiptekController@form')->name('admin.customers.create.siptek');
     Route::get('clientes-siptek-pos', 'AdminCustomerSiptekController@formPos')->name('admin.customers.create.siptek.pos');
 
@@ -62,7 +73,21 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('videos', 'AdminVideosController@index')->name('admin.videos');
     Route::get('template-de-email', 'AdminTemplateMailController@index')->name('admin.mail.template');
 
+    Route::get('grupos-de-email', 'AdminGrupoEmailController@index')->name('admin.grupos.email');
+    Route::get('grupos-de-vendas', 'AdminGrupoVendaController@index')->name('admin.grupos.vendas');
+    Route::get('pesquisa-satisfacao', 'AdminPesquisaSatisfacaoController@index')->name('admin.satisfacao');
+    Route::get('whois', 'AdminWhoisDomainController@index')->name('admin.whois');
 
+    // Vendas
+    Route::get('propostas', 'AdminPropostaComercialController@index')->name('admin.propostas');
+    Route::get('tipo-de-proposta', 'AdminPropostaComercialController@indexTipo')->name('admin.propostas.tipo');
+    Route::get('get-propostas/desconto', 'AdminPropostaComercialController@getSolicitacoesPropostasDescontos')->name('admin.propostas.desconto');
+    Route::get('get-propostas/analise-credito', 'AdminPropostaComercialController@getSolicitacoesPropostasEmAnalise')->name('admin.propostas.analise.credito');
+    Route::get('layout-de-proposta', 'AdminTemplateController@index')->name('admin.propostas.layout');
+
+    Route::get('vendas', 'AdminVendaController@index')->name('admin.vendas');
+    Route::get('nova-venda', 'AdminSaleController@form')->name('admin.sales.create');
+    Route::get('contratos', 'AdminSystemConfigController@contratosIndex')->name('admin.config.contratos');
 });
 
 

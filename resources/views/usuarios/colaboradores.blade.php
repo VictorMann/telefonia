@@ -2,6 +2,7 @@
 
 {{-- STYLES --}}
 @section('styles')
+    <link href="{{ asset('/plugins/bootstrap-sweetalert/sweetalert.css') }}" rel="stylesheet">
 <style>
 body {
     font-size: .9em;
@@ -72,19 +73,41 @@ body {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Adriana Ozorio</td>
-                        <td>adriana.ozorio@gmail.com</td>
-                        <td>
-                            <ul class="list-unstyled d-flex lista-acao">
-                                <li><a href="#" data-toggle="popover" data-content="Editar usuário"><i class="fa fa-edit"></i></a></li>
-                                <li><a href="#" data-toggle="popover" data-content="Remover usuário"><i class="fa fa-times"></i></a></li>
-                                <li><a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais departamentos"><i class="fa fa-building"></i></a></li>
-                                <li><a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais grupos de email"><i class="fa fa-group"></i></a></li>
-                                <li><a href="#" data-toggle="popover" data-content="Consultar comissão"><i class="fa fa-list-alt"></i></a></li>
-                            </ul>
-                        </td>
-                    </tr>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>
+                                <ul class="list-unstyled d-flex lista-acao">
+                                    <li>
+                                        <a href="{{ route('admin.users.edit',['id' => $user->id]) }}" data-toggle="popover" data-content="Editar usuário {{$user->name}}">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-toggle="popover" data-content="Remover usuário {{$user->name}}" onclick="removeRegistro('usuarios-remover/','{{ $user->id }}')">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais departamentos">
+                                            <i class="fa fa-building"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais grupos de email">
+                                            <i class="fa fa-group"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-toggle="popover" data-content="Consultar comissão">
+                                            <i class="fa fa-list-alt"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -95,6 +118,7 @@ body {
 
 {{-- SCRIPTS --}}
 @section('scripts')
+@include('include.js')
 <script>
 
     // popover
@@ -106,4 +130,5 @@ body {
 
 
 </script>
+
 @endsection

@@ -10,4 +10,9 @@ class AdminCustomerController extends Controller
     {
         return view('usuarios.consultar-clientes');
     }
+
+    public function createCliente()
+    {
+        return view('usuarios.form-cliente');
+    }
 }

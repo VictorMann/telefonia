@@ -46,3 +46,29 @@
     padding-left: 0;
     margin-top: 2em;
 }
+.rede-sociais {
+    bottom: 0;
+    margin: 2.8em;
+}
+.rede-sociais > * {
+    vertical-align: middle;
+    font-size: .8em;
+}
+.rede-sociais span {
+    display: inline-block;
+    color: #bbbbbb;
+    margin-left: 1em;
+}
+.rede-sociais a {
+    display: inline-block;
+    text-indent: -999px;
+    width: 1.2em;
+    height: 1.2em;
+    background: no-repeat center;
+    background-size: contain;
+    overflow: hidden;
+    opacity: .3;
+}
+.rede-sociais a:hover {
+    opacity: .4;
+}

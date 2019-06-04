@@ -31,44 +31,37 @@
                     <a class="nav-link" href="#permissoes-de-acesso">Permissões de Acesso</a>
                 </li>
             </ul>
-
-            <form class="area-nav p-3">
-
+            {!! Form::open(['route' => $form->route,'method' => $form->method,'class'=> 'area-nav p-3']) !!}
+            {{-- <form class="area-nav p-3" method="{{$form->method}}" action="{{route($form->route)}}"> --}}
+                <input type="hidden" name="id" value="{{ $user->id ?? '' }}">
                 <section id="dados-pessoais" class="d-none">
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="nome">Nome</label>
-                            <input type="text" id="nome" name="name" value="{{ $user->name ?? '' }}" class="form-control form-control-sm" placeholder="Nome do usuário">
+                                {!! Form::label('name', 'Nome do Usuário') !!}
+                                {!! Form::text('name',$user->name ?? '' , ['class' => 'form-control form-control-sm','id'=>'name','required' => 'true','placeholder' => 'Nome do usuário']) !!}
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" value="{{ $user->email ?? '' }}" class="form-control form-control-sm" placeholder="Endereço de email">
+                                {!! Form::label('email', 'Email') !!}
+                                {!! Form::text('email',$user->email ?? '' , ['class' => 'form-control form-control-sm','id'=>'name','required' => 'true','placeholder' => 'Endereço de email']) !!}
                             </div>
                         </div>
                     </div>
                 </section>
-
                 <section id="perfil-usuario" class="d-none">
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="nome">Perfil do Colaborador</label>
-                                <select name="" class="form-control form-control-sm">
-                                    <option value="">Administrador</option>
-                                    <option value="">Vendedor Interno</option>
-                                </select>
+                                {!! Form::label('perfil', 'Perfil do Colaborador') !!}
+                                {!! Form::select('perfil_id', $perfis,$user->perfil_id ?? null, ['class' => 'form-control form-control-sm']) !!}
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="email">Cargo</label>
-                                <select name="" class="form-control form-control-sm">
-                                    <option value="">Indicador</option>
-                                    <option value="">Vendedor</option>
-                                </select>
+                                {!! Form::label('cargo', 'Cargo') !!}
+                                {!! Form::select('profile', $cargos,$user->profile ?? null, ['class' => 'form-control form-control-sm']) !!}
                             </div>
                         </div>
                     </div>
@@ -83,7 +76,8 @@
                     <a class="btn btn-sm btn-secondary" href="{{ route('admin.users') }}">Cancelar</a>
                 </div>
 
-            </form>
+            {!! Form::close() !!}
+            {{-- </form> --}}
 
         </div>
     </div>

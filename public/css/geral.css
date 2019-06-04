@@ -16,9 +16,9 @@ a {
 
 h2 { font-size: 1.1em   }
 h3 { font-size: 1em     }
-h4 { font-size: 9.5em   }
-h5 { font-size: 9em     }
-h6 { font-size: 8.75em  }
+h4 { font-size: .95em   }
+h5 { font-size: .9em    }
+h6 { font-size: .875em  }
 
 .title-page h1 {
     padding-bottom: .5em;
@@ -35,6 +35,7 @@ h6 { font-size: 8.75em  }
 }
 .tb-base thead {
     background: #337ab7;
+    background-image: linear-gradient(to bottom, hsl(208, 56%, 46%), hsl(208, 56%, 32%));
     color: white;
 }
 .tb-base th {
