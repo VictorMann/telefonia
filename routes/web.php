@@ -29,6 +29,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('dashboard', 'HomeController@index')->name('admin.dashboard');
 
 
+    // Perfil usuário
+    Route::get('meu-perfil', 'AdminUserController@profile')->name('admin.users.perfil');
+
+
     // Usuários
     Route::get('usuarios', 'AdminUserController@index')->name('admin.users');
     Route::get('usuarios/create', 'AdminUserController@create')->name('admin.users.create');

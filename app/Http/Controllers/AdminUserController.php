@@ -21,6 +21,11 @@ class AdminUserController extends Controller
         ));
     }
 
+    public function profile()
+    {
+        return view('usuarios.config-usuario');
+    }
+
     public function listarPerfis()
     {
         return view('usuarios.perfil-usuario');
@@ -52,7 +57,7 @@ class AdminUserController extends Controller
             'perfis','cargos','form'
         ));
     }
-    
+
     public function save(Request $request)
     {
         $data = $request->all();
@@ -99,11 +104,11 @@ class AdminUserController extends Controller
         $data = $request->all();
 
         $this->user->updateUser($request->id,$data);
-        
+
         return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario editado com sucesso!');
     }
 
-    public function remove ($id) 
+    public function remove ($id)
     {
         $this->user->find($id)->delete();
         return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario excluido com sucesso!');

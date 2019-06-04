@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/libraries/bootstrap4.3.1.min.css') }}" rel="stylesheet">
-    
+
     <link href="{{ asset('fonts/fontawesome/css/solid.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/template.css') }}" rel="stylesheet">
     <link href="{{ asset('css/geral.css') }}" rel="stylesheet">
@@ -30,7 +30,7 @@
                     <span class="avatar" style="background-image: url({{ asset('imgs/geral/avatar.png') }})"></span>
                     <span class="nome-user">{{ Auth::user()->name ?? 'Usuário' }}</span>
                     <ul class="list-unstyled user-menu">
-                        <li><a href="#">Meu Perfil</a></li>
+                        <li><a href="{{ route('admin.users.perfil') }}">Meu Perfil</a></li>
                         <li><a href="{{ route('logout') }}">Sair</a></li>
                     </ul>
                 </div> <!-- logo -->
