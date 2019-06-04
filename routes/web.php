@@ -78,6 +78,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('pesquisa-satisfacao', 'AdminPesquisaSatisfacaoController@index')->name('admin.satisfacao');
     Route::get('whois', 'AdminWhoisDomainController@index')->name('admin.whois');
 
+
     // Vendas
     Route::get('propostas', 'AdminPropostaComercialController@index')->name('admin.propostas');
     Route::get('tipo-de-proposta', 'AdminPropostaComercialController@indexTipo')->name('admin.propostas.tipo');
@@ -88,6 +89,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('vendas', 'AdminVendaController@index')->name('admin.vendas');
     Route::get('nova-venda', 'AdminSaleController@form')->name('admin.sales.create');
     Route::get('contratos', 'AdminSystemConfigController@contratosIndex')->name('admin.config.contratos');
+
+
+    // Relatorios
+    Route::get('relatorio-clientes-cancelados', 'AdminReportController@reportCancelCustomers')->name('admin.reports.cancel.customer');
+    Route::get('relatorio-clientes', 'AdminReportController@reportCustomers')->name('admin.reports.customers');
+
 });
 
 

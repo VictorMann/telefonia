@@ -25,7 +25,6 @@ img {
     display: flex;
     overflow: hidden;
 }
-.ctn-base > * {}
 
 .barra-lateral {
     position: relative;
@@ -51,7 +50,7 @@ img {
     overflow: hidden;
 }
 .lista-nav:hover {
-    width: 180px;
+    width: 190px;
 }
 .lista-nav a {
     display: block;

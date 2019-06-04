@@ -10,10 +10,11 @@ $('.btn-com-sub').click(function() {
 });
 
 // POPOVER
-$('.lista-acao a').popover({
+$('.lista-acao a, .lista-export a').popover({
     trigger: 'hover',
     placement: 'top'
 });
+
 
 $('.lista-nav').on('mouseout', function(event) {
     let els = $(document.elementsFromPoint(event.offsetX, event.offsetY));
