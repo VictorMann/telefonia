@@ -94,6 +94,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     // Relatorios
     Route::get('relatorio-clientes-cancelados', 'AdminReportController@reportCancelCustomers')->name('admin.reports.cancel.customer');
     Route::get('relatorio-clientes', 'AdminReportController@reportCustomers')->name('admin.reports.customers');
+    Route::get('relatorio-financeiro', 'AdminReportController@reportFinancial')->name('admin.reports.financial');
+    Route::get('relatorio-logs', 'AdminReportController@reportLogs')->name('admin.reports.logs');
+    Route::get('relatorio-numeros', 'AdminReportController@numbers')->name('admin.report.numbers');
+    Route::get('relatorio-equipamentos', 'AdminReportController@reportVendasEquipamentos')->name('admin.reports.equipamentos');
+    Route::get('relatorio-comissoes', 'AdminReportController@getComissoes')->name('admin.report.comissoes');
 
 });
 
