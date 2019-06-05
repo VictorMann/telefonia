@@ -87,6 +87,7 @@
 
 {{-- SCRIPTS --}}
 @section('scripts')
+@include('include.js')
 <script>
 
 let hash = location.hash;
