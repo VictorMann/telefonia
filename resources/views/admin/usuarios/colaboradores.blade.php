@@ -62,56 +62,62 @@ body {
 
     </div>
 
-    <div class="row">
-        <div class="col-md">
-            <table class="tb-base table table-sm table-striped">
-                <thead>
-                    <tr>
-                        <th class="pt-2 pb-2">Nome</th>
-                        <th class="pt-2 pb-2">Email</th>
-                        <th class="pt-2 pb-2">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($users as $user)
+    @if ($users)
+        <div class="row">
+            <div class="col-md">
+                <table class="tb-base table table-sm table-striped">
+                    <thead>
                         <tr>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>
-                                <ul class="list-unstyled d-flex lista-acao">
-                                    <li>
-                                        <a href="{{ route('admin.users.edit',['id' => $user->id]) }}" data-toggle="popover" data-content="Editar usuário {{$user->name}}">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-toggle="popover" data-content="Remover usuário {{$user->name}}" onclick="removeRegistro('usuarios-remover/','{{ $user->id }}')">
-                                            <i class="fa fa-times"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais departamentos">
-                                            <i class="fa fa-building"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais grupos de email">
-                                            <i class="fa fa-group"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-toggle="popover" data-content="Consultar comissão">
-                                            <i class="fa fa-list-alt"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </td>
+                            <th class="pt-2 pb-2">Nome</th>
+                            <th class="pt-2 pb-2">Email</th>
+                            <th class="pt-2 pb-2">Ações</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
+                            <tr>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>
+                                    <ul class="list-unstyled d-flex lista-acao">
+                                        <li>
+                                            <a href="{{ route('admin.users.edit',['id' => $user->id]) }}" data-toggle="popover" data-content="Editar usuário {{$user->name}}">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-toggle="popover" data-content="Remover usuário {{$user->name}}" onclick="removeRegistro('usuarios-remover/','{{ $user->id }}')">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais departamentos">
+                                                <i class="fa fa-building"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais grupos de email">
+                                                <i class="fa fa-group"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-toggle="popover" data-content="Consultar comissão">
+                                                <i class="fa fa-list-alt"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    @else
+        <div class="sem-resultado">
+            Não há resultados
+        </div>
+    @endif
 
 
 @endsection

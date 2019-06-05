@@ -41,4 +41,9 @@ class AdminReportController extends Controller
         return view('admin.relatorios.comissoes');
     }
 
+    public function credits()
+    {
+        return view('admin.relatorios.recargas-colaborador');
+    }
+
 }

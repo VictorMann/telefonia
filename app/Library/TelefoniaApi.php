@@ -3,7 +3,7 @@
  * Classe para acesso as funções do Telefonia API
  * @author Matheus Soares <matheus.soares@twsolutions.com.br>
  * @version 1.0
- * @copyright GPL © 2019, TW Solutions. 
+ * @copyright GPL © 2019, TW Solutions.
  * @access public
  * @package Cliente On Line
  * @subpackage Helpers
@@ -46,7 +46,7 @@ class TelefoniaApi {
 
 	private function comunicaApi($method,$name,$data = [])
 	{
-		//$token = $this->token;
+        //$token = $this->token;
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 			CURLOPT_URL 			=> $this->url.$name,
@@ -67,16 +67,16 @@ class TelefoniaApi {
 		));
 
 		$response = curl_exec($curl);
-		
+
 		$err = curl_error($curl);
-		
+
 		curl_close($curl);
 
-		if ($err) 
+		if ($err)
 		{
 			return json_encode($err);
-		} 
-		else 
+		}
+		else
 		{
 			return $response;
 		}

@@ -99,6 +99,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('relatorio-numeros', 'AdminReportController@numbers')->name('admin.report.numbers');
     Route::get('relatorio-equipamentos', 'AdminReportController@reportVendasEquipamentos')->name('admin.reports.equipamentos');
     Route::get('relatorio-comissoes', 'AdminReportController@getComissoes')->name('admin.report.comissoes');
+    Route::get('relatorio-recarga', 'AdminReportController@credits')->name('admin.report.credits');
 
 });
 
