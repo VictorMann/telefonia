@@ -1,9 +1,9 @@
 <?php
 /**
- * Classe para acesso as funções da API do PABX
+ * Classe para acesso as funções do Telefonia API
  * @author Matheus Soares <matheus.soares@twsolutions.com.br>
  * @version 1.0
- * @copyright GPL © 2018, TW Solutions. 
+ * @copyright GPL © 2019, TW Solutions. 
  * @access public
  * @package Cliente On Line
  * @subpackage Helpers
@@ -12,79 +12,72 @@
 
 namespace App\Library;
 
-class PabxTW {
+class TelefoniaApi {
 
-	public function __construct($token,$url){
-		$this->token  = $token;
-		$this->url    = $url;
+	public function __construct(){
+		//$this->token  = $token;
+		$this->url    = getenv('URL_TELEFONIA_API');
 	}
 
-/**
-	Cliente API
-*/
-	public function consultaClientes(){
-		$param = [
-			'url'    => $this->url.'/cliente',
-			'method' => 'GET'
-		];
-		$curl = $this->comunicaPABX($param);
-		return $curl;
+	public function create($name,$data = null)
+	{
+		$curl = $this->comunicaApi('POST',$name,$data);
+		return json_decode($curl);
 	}
 
-	public function cadastrarClientes($customer){
-		$param = [
-			'url'    => $this->url.'/cliente',
-			'method' => 'POST',
-			'fields' => [
-				'siptek_id' 		=> $customer->api_id,
-				'razao_social' 		=> $customer->name,
-				'nome_fantasia' 	=> $customer->username,
-				'cpf_cnpj'       	=> $customer->cpf_cnpj,
-				'ie'            	=> empty($customer->rg_ie)?'Isento':$customer->rg_ie,
-				'ramais_permitidos' => $customer->qtdRamais,
-				'disk_space'        => '500',
-				'ativo'             => $customer->ativo,
-				'plano'             => '1'
-			]
-		];
-		$curl = $this->comunicaPABX($param);
-		return $curl;
+	public function get($name)
+	{
+		$curl = $this->comunicaApi('GET',$name);
+		return json_decode($curl);
 	}
 
-	private function comunicaPABX($param)
+	public function put($name,$data=null)
+	{
+		$curl = $this->comunicaApi('PUT',$name,$data);
+		return json_decode($curl);
+	}
+
+	public function delete($name)
+	{
+		$curl = $this->comunicaApi('DELETE',$name);
+		return json_decode($curl);
+	}
+
+
+	private function comunicaApi($method,$name,$data = [])
 	{
 		//$token = $this->token;
-		$fields = '';
-		if(isset($param['fields'])){
-			foreach($param['fields'] as $name => $valor) {
-				$fields .= $name . '=' . str_replace('&', 'e', $valor) . '&';
-			}
-		}
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
-			CURLOPT_URL 			=> $param['url'],
+			CURLOPT_URL 			=> $this->url.$name,
 			CURLOPT_RETURNTRANSFER  => true,
 			CURLOPT_ENCODING 		=> "",
 			CURLOPT_MAXREDIRS 		=> 10,
 			CURLOPT_TIMEOUT         => 60,
 			CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
-			CURLOPT_CUSTOMREQUEST   => $param['method'],
-			CURLOPT_POSTFIELDS      => $fields,
+			CURLOPT_CUSTOMREQUEST   => $method,
+			CURLOPT_POSTFIELDS      => http_build_query($data),
 			CURLOPT_HTTPHEADER      => array(
 				"Accept: application/json",
-				"Authorization:Bearer ".$this->token,
+				//"Authorization:Bearer ".$this->token,
 				"Cache-Control: no-cache",
 				"Content-Type: application/x-www-form-urlencoded",
 				"Postman-Token: 43786ded-f3fb-41ee-a164-e6ae0d3ba019"
 			),
 		));
+
 		$response = curl_exec($curl);
+		
 		$err = curl_error($curl);
+		
 		curl_close($curl);
 
-		if ($err) {
+		if ($err) 
+		{
 			return json_encode($err);
-		} else {
+		} 
+		else 
+		{
 			return $response;
 		}
 	}

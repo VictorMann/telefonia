@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+use App\Library\TelefoniaApi;
+
 class AdminUserController extends Controller
 {
 	public function __construct (User $user)
 	{
 		$this->user = $user;
+        $this->telefoniaApi = new TelefoniaApi();
     }
 
     public function index()
     {
-        $users  = $this->user->getUsersAdmin();
+        $users  = $this->telefoniaApi->get('user');
 
         return view('admin.usuarios.colaboradores', compact(
             'users'
@@ -38,7 +41,6 @@ class AdminUserController extends Controller
 
     public function create()
     {
-
         $form = (object) ['route'  => 'admin.users.save','method' => 'POST'];
 
         $perfis = ['' => '::Selecione o Perfil do Colaborador::',
@@ -66,7 +68,11 @@ class AdminUserController extends Controller
         $data['role']     = 'admin';
         $data['link']     = 'http://www.telefoniacorporativa.com.br/auth/login';
 
-        $this->user->createUser($data);
+        $api = $this->telefoniaApi->create('user',$data);
+
+        // -- Faz tratativa de erro --
+        if(isset($api->errors))
+            return redirect()->route('admin.users')->with('message_ERROR', $api->message);
 
         return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario cadastrado com sucesso!');
     }
@@ -74,7 +80,8 @@ class AdminUserController extends Controller
     public function edit($id)
     {
         $form = (object) ['route'  => 'admin.users.update','method' => 'PUT'];
-        $user = $this->user->find($id);
+
+        $user = $this->telefoniaApi->get('user/'.$id);
 
         $perfis = ['' => '::Selecione o Perfil do Colaborador::',
             1 => 'Administrador',
@@ -103,14 +110,23 @@ class AdminUserController extends Controller
     {
         $data = $request->all();
 
-        $this->user->updateUser($request->id,$data);
+        $api = $this->telefoniaApi->put('user/'.$request->id,$data);
+
+        // -- Faz tratativa de erro --
+        if(isset($api->errors))
+            return redirect()->route('admin.users')->with('message_ERROR', $api->message);
 
         return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario editado com sucesso!');
     }
 
     public function remove ($id)
     {
-        $this->user->find($id)->delete();
+        $api = $this->telefoniaApi->delete('user/'.$id);
+
+        // -- Faz tratativa de erro --
+        if(isset($api->errors))
+            return redirect()->route('admin.users')->with('message_ERROR', $api->message);
+
         return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario excluido com sucesso!');
     }
 }
