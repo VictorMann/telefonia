@@ -100,6 +100,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('relatorio-equipamentos', 'AdminReportController@reportVendasEquipamentos')->name('admin.reports.equipamentos');
     Route::get('relatorio-comissoes', 'AdminReportController@getComissoes')->name('admin.report.comissoes');
     Route::get('relatorio-recarga', 'AdminReportController@credits')->name('admin.report.credits');
+    Route::get('relatorio-recarga-clientes', 'AdminReportController@creditsByCustomers')->name('admin.report.credits-customers');
+    Route::get('relatorio-vendas', 'AdminReportController@sales')->name('admin.report.sales');
+    Route::get('relatorio-faturamento-pos', 'AdminReportController@reportFaturamentoPos')->name('admin.reports.faturamento.pos');
+    Route::get('relatorio-faturamento-pre', 'AdminReportController@reportFaturamentoPre')->name('admin.reports.faturamento.pre');
+    Route::get('relatorio-contrato', 'AdminReportController@contratos')->name('admin.reports.semcontrato');
+    Route::get('ativacoes-pendentes-por-pagamento', 'AdminReportController@pendenciasDeAtivacaoFinanceiro')->name('admin.reports.ativacao.pendente.financeiro');
+    Route::get('ativacoes-pendentes-por-contrato', 'AdminReportController@pendenciasDeAtivacaoContrato')->name('admin.reports.ativacao.pendente.contrato');
 
 });
 

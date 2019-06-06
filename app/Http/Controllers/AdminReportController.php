@@ -46,4 +46,39 @@ class AdminReportController extends Controller
         return view('admin.relatorios.recargas-colaborador');
     }
 
+    public function creditsByCustomers()
+    {
+        return view('admin.relatorios.recargas-clientes');
+    }
+
+    public function sales()
+    {
+        return view('admin.relatorios.vendas');
+    }
+
+    public function reportFaturamentoPos()
+    {
+        return view('admin.relatorios.faturamento-pos');
+    }
+
+    public function reportFaturamentoPre()
+    {
+        return view('admin.relatorios.faturamento-pre');
+    }
+
+    public function contratos()
+    {
+        return view('admin.relatorios.contratos');
+    }
+
+    public function pendenciasDeAtivacaoFinanceiro()
+    {
+        return view('admin.relatorios.ativacao-pend-pag');
+    }
+
+    public function pendenciasDeAtivacaoContrato()
+    {
+        return view('admin.relatorios.ativacao-pend-contrato');
+    }
+
 }
