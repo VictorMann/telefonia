@@ -41,22 +41,29 @@ class AdminUserController extends Controller
 
     public function create()
     {
-        $form = (object) ['route'  => 'admin.users.save','method' => 'POST'];
-
-        $perfis = ['' => '::Selecione o Perfil do Colaborador::',
-            1 => 'Administrador',
-            2 => 'Suporte',
-            3 => 'Financeiro',
-            4 => 'Comercial'
+        $form = (object) [
+            'route'  => 'admin.users.save',
+            'method' => 'POST'
         ];
 
-        $cargos  = ['' => '::Selecione o Cargo do Colaborador',
-            1 => 'Presidente',
-            2 => 'Gerente Comercial'
+        $perfis = [
+            '' => '::Selecione o Perfil do Colaborador::',
+            1  => 'Administrador',
+            2  => 'Suporte',
+            3  => 'Financeiro',
+            4  => 'Comercial'
+        ];
+
+        $cargos = [
+            '' => '::Selecione o Cargo do Colaborador',
+            1  => 'Presidente',
+            2  => 'Gerente Comercial'
         ];
 
         return view('admin.usuarios.form-usuario', compact(
-            'perfis','cargos','form'
+            'perfis',
+            'cargos',
+            'form'
         ));
     }
 
@@ -119,7 +126,7 @@ class AdminUserController extends Controller
         return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario editado com sucesso!');
     }
 
-    public function remove ($id)
+    public function remove($id)
     {
         $api = $this->telefoniaApi->delete('user/'.$id);
 
@@ -128,5 +135,15 @@ class AdminUserController extends Controller
             return redirect()->route('admin.users')->with('message_ERROR', $api->message);
 
         return redirect()->route('admin.users')->with('message_SUCCESS', 'Usuario excluido com sucesso!');
+    }
+
+    public function editarDepartamento($id)
+    {
+        return view('admin.usuarios.departamento');
+    }
+
+    public function editarGrupoEmail($id)
+    {
+        return view('admin.usuarios.grupo-emails');
     }
 }

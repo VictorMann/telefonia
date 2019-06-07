@@ -91,17 +91,17 @@ body {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais departamentos">
+                                            <a href="{{ route('admin.users.departamento', [$user->id]) }}" data-toggle="popover" data-content="Vincular usuário a um ou mais departamentos">
                                                 <i class="fa fa-building"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" data-toggle="popover" data-content="Vincular usuário a um ou mais grupos de email">
-                                                <i class="fa fa-group"></i>
+                                            <a href="{{ route('admin.users.grupos.email', [$user->id]) }}" data-toggle="popover" data-content="Vincular usuário a um ou mais grupos de email">
+                                                <i class="fas fa-users"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" data-toggle="popover" data-content="Consultar comissão">
+                                            <a href="javascript:;" data-toggle="popover" data-content="Consultar comissão">
                                                 <i class="fa fa-list-alt"></i>
                                             </a>
                                         </li>
@@ -111,6 +111,29 @@ body {
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modal1">MODAL</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal1" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
             </div>
         </div>
     @else

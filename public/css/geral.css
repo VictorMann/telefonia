@@ -116,3 +116,10 @@ h6 { font-size: .875em  }
     padding-top: .1rem;
     padding-bottom: .1rem;
 }
+
+
+/* CHECKBOX */
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #337ab7;
+    background-color: #337ab7;
+}

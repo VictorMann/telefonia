@@ -38,6 +38,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('usuarios/create', 'AdminUserController@create')->name('admin.users.create');
     Route::post('usuarios/novo', 'AdminUserController@save')->name('admin.users.save');
 
+
+    Route::get('usuario-departamento/{id}', 'AdminUserController@editarDepartamento')->name('admin.users.departamento');
+    Route::get('usuario-grupos-email/{id}', 'AdminUserController@editarGrupoEmail')->name('admin.users.grupos.email');
+
+
     Route::put('usuarios/update', 'AdminUserController@update')->name('admin.users.update');
     Route::get('usuarios-remover/{id}', 'AdminUserController@remove')->name('admin.users.remove');
     Route::get('usuarios/{id}', 'AdminUserController@edit')->name('admin.users.edit');
